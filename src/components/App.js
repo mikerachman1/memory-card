@@ -10,6 +10,9 @@ function App() {
   const [clicked, setClicked] = useState([]);
   const [current, setCurrent] = useState(0);
   const [high, setHigh] = useState(0);
+  const [displayNames, setDisplayNames] = useState(false)
+
+  const toggleNames = () => displayNames ? setDisplayNames(false) : setDisplayNames(true);
 
   const resetGame = () => {
     setCurrent(0);
@@ -41,14 +44,16 @@ function App() {
 
   return (
     <div>
-      <Header current={current} high={high}/>
+      <Header current={current} high={high} toggleNames={toggleNames}/>
       <div className="card-container">
         {cards.map((card) => {
           return <Card 
-                  key={card.id}
-                  id ={card.id}
-                  src={card.src}
-                  handleClick={handleClick}
+                  key = {card.id}
+                  id = {card.id}
+                  name = {card.name}
+                  src = {card.src}
+                  handleClick = {handleClick}
+                  displayNames = {displayNames}
                   />
         })}
       </div>

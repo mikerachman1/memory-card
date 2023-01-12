@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
 const Scores = (props) => {
-  
-
   return (
     <div className="score-container">
       <div className="current-container">
