@@ -2,8 +2,8 @@ import Header from "./Header";
 import React, { useState, useEffect } from "react";
 import getRandomFlags from "./helpers/flags";
 import Card from "./Card";
-
-// have button that toggles dispalying flag names
+import "../styles/App.css";
+import { gameOverColor, resetColor } from "./helpers/gameEndColor";
 
 function App() {
   const [cards, setCards] = useState(getRandomFlags());
@@ -18,12 +18,14 @@ function App() {
     setCurrent(0);
     setClicked([]);
     setCards(getRandomFlags());
+    gameOverColor();
   }
 
   const handleClick = (flagId) => {
     if (clicked.includes(flagId)) {
       return resetGame();
     }
+    if (current === 0) { resetColor() };
     setClicked(clicked.concat(flagId));
     setCards(getRandomFlags());
     setCurrent(current + 1);
