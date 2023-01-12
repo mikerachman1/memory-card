@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 
-const Scores = () => {
-  const [current, setCurrent] = useState(0);
-  const [high, setHigh] = useState(0);
+const Scores = (props) => {
+  
 
   return (
     <div className="score-container">
       <div className="current-container">
-        <h2>Current Score: {current}</h2>
+        <h2>Current Score: {props.current}</h2>
       </div>
       <div className="high-container">
-        <h2>High Score: {high}</h2>
+        <h2>High Score: {props.high}</h2>
       </div>
     </div>
   );

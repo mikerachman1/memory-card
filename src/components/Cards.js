@@ -1,6 +1,6 @@
 import React from "react";
 
-const Cards = () => {
+const Cards = (props) => {
   return (
     <div className="main">
       <div className="card">
