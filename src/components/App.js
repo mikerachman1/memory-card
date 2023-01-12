@@ -1,6 +1,9 @@
 import Header from "./Header";
 import React, { useState, useEffect } from "react";
 import getRandomFlags from "./helpers/flags";
+import Card from "./Card";
+
+// have button that toggles dispalying flag names
 
 function App() {
   const [cards, setCards] = useState(getRandomFlags())
@@ -10,6 +13,11 @@ function App() {
   return (
     <div>
       <Header current={current} high={high}/>
+      <div>
+        {cards.map((card) => {
+          return <Card src={card.src} name={card.name}/>
+        })}
+      </div>
     </div>
   );
 }
